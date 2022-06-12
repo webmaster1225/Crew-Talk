@@ -35,7 +35,6 @@
            android:inputType="text"
            android:hint="username"
            android:layout_marginTop="10dp"
-           android:textColor="@android:color/white"
            android:textColorHint="@android:color/tertiary_text_dark"
            />
 
@@ -46,7 +45,6 @@
            android:inputType="text"
            android:hint="email"
            android:layout_marginTop="10dp"
-           android:textColor="@android:color/white"
            android:textColorHint="@android:color/tertiary_text_dark"
            />
 
@@ -57,7 +55,6 @@
             android:inputType="textPassword"
             android:hint="password"
             android:layout_marginTop="10dp"
-            android:textColor="@android:color/white"
             android:textColorHint="@android:color/tertiary_text_dark"
             />
 
