@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1005305407823",
+    "project_id": "crew-talk-ded86",
+    "storage_bucket": "crew-talk-ded86.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1005305407823:android:25b55e9d823f4096033d3a",
+        "android_client_info": {
+          "package_name": "dev.nguyen.crewtalk"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1005305407823-2ek8hgpvaqe0u39qqg2g99mes6iaj2qc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBflEl0pKnNRPtOCfhTSu_f0R_KBkmiY5M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1005305407823-2ek8hgpvaqe0u39qqg2g99mes6iaj2qc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
