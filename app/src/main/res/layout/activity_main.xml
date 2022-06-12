@@ -14,16 +14,56 @@
         android:theme="@style/Theme.CrewTalk.AppBarOverlay">
 
         <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar_main"
+            android:id="@+id/toolbarMain"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
             app:popupTheme="@style/Theme.CrewTalk.PopupOverlay">
 
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/profile_image"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/ic_profile"
+                android:tint="@android:color/white"
+                >
+
+            </de.hdodenhof.circleimageview.CircleImageView>
+            
+            <TextView
+                android:id="@+id/username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="username"
+                android:textSize="18sp"
+                android:layout_marginLeft="26dp"
+                android:textColor="@android:color/black"
+                android:textStyle="bold"
+                >
+
+            </TextView>
 
         </androidx.appcompat.widget.Toolbar>
 
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tablayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimaryDark"
+            app:tabIndicator="@android:color/white"
+            >
+
+        </com.google.android.material.tabs.TabLayout>
+
     </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </androidx.viewpager.widget.ViewPager>
 
     <include layout="@layout/content_main" />
 
