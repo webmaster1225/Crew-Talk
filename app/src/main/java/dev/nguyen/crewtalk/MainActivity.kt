@@ -9,6 +9,9 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import android.view.Menu
 import android.view.MenuItem
+import androidx.appcompat.widget.Toolbar
+import androidx.viewpager.widget.ViewPager
+import com.google.android.material.tabs.TabLayout
 import dev.nguyen.crewtalk.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -22,7 +25,15 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        setSupportActionBar(binding.toolbar)
+        setSupportActionBar(binding.toolbarMain)
+
+        val toolbar: Toolbar = binding.toolbarMain
+        setSupportActionBar(toolbar)
+        // the "!!" will throw NullPointerException if the value is null
+        supportActionBar!!.title = "" // this will help prevent showing default app's name in the action bar
+
+        val tabLayout: TabLayout = binding.tablayout
+        val viewPager: ViewPager = binding.viewPager
 
         val navController = findNavController(R.id.nav_host_fragment_content_main)
         appBarConfiguration = AppBarConfiguration(navController.graph)
