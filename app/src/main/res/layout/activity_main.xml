@@ -50,7 +50,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/colorPrimaryDark"
-            app:tabIndicatorColor="@android:color/background_light"
+            app:tabTextColor="@android:color/white"
             >
 
         </com.google.android.material.tabs.TabLayout>
