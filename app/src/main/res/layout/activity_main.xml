@@ -14,7 +14,7 @@
         android:theme="@style/Theme.CrewTalk.AppBarOverlay">
 
         <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
+            android:id="@+id/toolbar_main"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
