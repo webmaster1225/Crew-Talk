@@ -17,7 +17,7 @@
             android:id="@+id/toolbarMain"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
+            android:background="@color/colorPrimaryDark"
             app:popupTheme="@style/Theme.CrewTalk.PopupOverlay">
 
             <de.hdodenhof.circleimageview.CircleImageView
@@ -27,7 +27,6 @@
                 android:src="@drawable/ic_profile"
                 android:tint="@android:color/white"
                 >
-
             </de.hdodenhof.circleimageview.CircleImageView>
             
             <TextView
@@ -37,7 +36,7 @@
                 android:text="username"
                 android:textSize="18sp"
                 android:layout_marginLeft="26dp"
-                android:textColor="@android:color/black"
+                android:textColor="@android:color/white"
                 android:textStyle="bold"
                 >
 
@@ -47,11 +46,11 @@
 
 
         <com.google.android.material.tabs.TabLayout
-            android:id="@+id/tablayout"
+            android:id="@+id/tabLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/colorPrimaryDark"
-            app:tabIndicator="@android:color/white"
+            app:tabIndicatorColor="@android:color/background_light"
             >
 
         </com.google.android.material.tabs.TabLayout>

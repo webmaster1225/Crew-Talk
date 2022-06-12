@@ -24,7 +24,6 @@ class MainActivity : AppCompatActivity() {
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
         setSupportActionBar(binding.toolbarMain)
 
         val toolbar: Toolbar = binding.toolbarMain
@@ -32,7 +31,7 @@ class MainActivity : AppCompatActivity() {
         // the "!!" will throw NullPointerException if the value is null
         supportActionBar!!.title = "" // this will help prevent showing default app's name in the action bar
 
-        val tabLayout: TabLayout = binding.tablayout
+        val tabLayout: TabLayout = binding.tabLayout
         val viewPager: ViewPager = binding.viewPager
         val viewPagerAdapter = ViewPagerAdapter(supportFragmentManager)
 
