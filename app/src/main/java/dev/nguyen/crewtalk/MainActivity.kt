@@ -10,8 +10,14 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.widget.Toolbar
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentPagerAdapter
 import androidx.viewpager.widget.ViewPager
 import com.google.android.material.tabs.TabLayout
+import dev.nguyen.crewtalk.Fragments.ChatsFragment
+import dev.nguyen.crewtalk.Fragments.SearchFragment
+import dev.nguyen.crewtalk.Fragments.SettingsFragment
 import dev.nguyen.crewtalk.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -32,12 +38,20 @@ class MainActivity : AppCompatActivity() {
         // the "!!" will throw NullPointerException if the value is null
         supportActionBar!!.title = "" // this will help prevent showing default app's name in the action bar
 
-        val tabLayout: TabLayout = binding.tablayout
-        val viewPager: ViewPager = binding.viewPager
-
         val navController = findNavController(R.id.nav_host_fragment_content_main)
         appBarConfiguration = AppBarConfiguration(navController.graph)
         setupActionBarWithNavController(navController, appBarConfiguration)
+
+        val tabLayout: TabLayout = binding.tablayout
+        val viewPager: ViewPager = binding.viewPager
+        val viewPagerAdapter = ViewPagerAdapter(supportFragmentManager)
+
+        viewPagerAdapter.addFragment(ChatsFragment(), "Chats")
+        viewPagerAdapter.addFragment(SearchFragment(), "Search")
+        viewPagerAdapter.addFragment(SettingsFragment(), "Settings")
+
+        viewPager.adapter = viewPagerAdapter
+        tabLayout.setupWithViewPager(viewPager)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -60,5 +74,34 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment_content_main)
         return navController.navigateUp(appBarConfiguration)
                 || super.onSupportNavigateUp()
+    }
+
+    internal class ViewPagerAdapter(fragmentManager: FragmentManager) : FragmentPagerAdapter(fragmentManager) {
+
+        private val fragments: ArrayList<Fragment>
+        private val titles: ArrayList<String>
+
+        init {
+            fragments = ArrayList<Fragment>()
+            titles = ArrayList<String>()
+        }
+
+        override fun getCount(): Int {
+            return fragments.size
+        }
+
+        override fun getItem(position: Int): Fragment {
+            return fragments[position]
+        }
+
+        fun addFragment(fragment: Fragment, title: String) {
+            fragments.add(fragment)
+            titles.add(title)
+        }
+
+        override fun getPageTitle(position: Int): CharSequence? {
+            return titles[position]
+        }
+
     }
 }
