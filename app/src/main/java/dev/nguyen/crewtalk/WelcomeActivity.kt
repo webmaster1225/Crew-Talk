@@ -18,13 +18,13 @@ class WelcomeActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.registerWelcomeBtn.setOnClickListener {
-            val intent = Intent(this@WelcomeActivity, RegisterActivity::class.java)
+            val intent = Intent(this, RegisterActivity::class.java)
             startActivity(intent)
             finish()
         }
 
         binding.loginWelcomeBtn.setOnClickListener {
-            val intent = Intent(this@WelcomeActivity, LoginActivity::class.java)
+            val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
             finish()
         }
@@ -38,7 +38,7 @@ class WelcomeActivity : AppCompatActivity() {
 
         // USER VALIDATION
         if (firebaseUser != null) {
-            val intent = Intent(this@WelcomeActivity, MainActivity::class.java)
+            val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
             finish() //Call this when your activity is done and should be closed. The ActivityResult is propagated back to whoever launched you via onActivityResult()
         }

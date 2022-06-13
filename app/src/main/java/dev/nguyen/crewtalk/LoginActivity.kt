@@ -25,7 +25,7 @@ class LoginActivity : AppCompatActivity() {
 
         // Click the back button
         toolbar.setNavigationOnClickListener {
-            val intent = Intent(this@LoginActivity, WelcomeActivity::class.java)
+            val intent = Intent(this, WelcomeActivity::class.java)
             startActivity(intent)
             finish()
         }
