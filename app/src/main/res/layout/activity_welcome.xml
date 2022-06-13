@@ -12,11 +12,12 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:alpha="0.6"
+        android:fontFamily="@font/galada"
+        android:text="Crew Talk"
         android:textColor="@android:color/white"
         android:textSize="35dp"
-        android:textStyle="bold"
-        android:text="Crew Talk"
-        />
+        android:textStyle="bold" />
 
     <Button
         android:id="@+id/register_welcome_btn"
