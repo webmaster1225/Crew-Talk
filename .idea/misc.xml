@@ -5,6 +5,9 @@
       <map>
         <entry key="app/src/main/res/drawable/background_left.xml" value="0.1095" />
         <entry key="app/src/main/res/drawable/background_right.xml" value="0.1095" />
+        <entry key="app/src/main/res/drawable/round_btn.xml" value="0.1095" />
+        <entry key="app/src/main/res/drawable/rounded_btn.xml" value="0.1095" />
+        <entry key="app/src/main/res/font/galada.xml" value="0.20277777777777778" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.24547101449275363" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.20644836425781252" />
         <entry key="app/src/main/res/layout/activity_register.xml" value="0.24547101449275363" />
