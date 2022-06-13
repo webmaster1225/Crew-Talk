@@ -8,7 +8,6 @@ import androidx.appcompat.widget.Toolbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
-import dev.nguyen.crewtalk.databinding.ActivityMainBinding
 import dev.nguyen.crewtalk.databinding.ActivityRegisterBinding
 
 class RegisterActivity : AppCompatActivity() {
@@ -77,6 +76,7 @@ class RegisterActivity : AppCompatActivity() {
                         userHashMap["facebook"] = "https://m.facebook.com"
                         userHashMap["instagram"] = "https://m.instagram.com"
                         userHashMap["website"] = "https://namnguyen31.com"
+
 
                         refUser
                             .updateChildren(userHashMap)

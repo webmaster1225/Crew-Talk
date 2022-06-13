@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/welcome"
+    android:background="@drawable/welcome_bg"
     android:gravity="center"
     android:orientation="vertical"
     tools:context=".WelcomeActivity">
@@ -15,7 +15,7 @@
         android:textColor="@android:color/holo_orange_dark"
         android:textSize="35dp"
         android:textStyle="bold"
-        android:text="Welcome"
+        android:text="Crew Talk"
         />
 
     <Button
