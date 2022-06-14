@@ -30,10 +30,8 @@ class WelcomeActivity : AppCompatActivity() {
         }
     }
 
-
     override fun onStart() {
         super.onStart()
-
         firebaseUser = FirebaseAuth.getInstance().currentUser
 
         // USER VALIDATION

@@ -16,7 +16,7 @@ class RegisterActivity : AppCompatActivity() {
     private lateinit var mAuth: FirebaseAuth
     private lateinit var refUser: DatabaseReference
 
-    // userID is unique among the firebase users
+    // userID is unique awmong the firebase users
     private var fireBaseUserId: String = "" // this is retrieved from the authentication process
 
     override fun onCreate(savedInstanceState: Bundle?) {
