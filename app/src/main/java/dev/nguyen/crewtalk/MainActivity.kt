@@ -12,6 +12,10 @@ import androidx.fragment.app.FragmentPagerAdapter
 import androidx.viewpager.widget.ViewPager
 import com.google.android.material.tabs.TabLayout
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.database.*
+import com.squareup.picasso.Picasso
+import dev.nguyen.crewtalk.Models.Users
 import dev.nguyen.crewtalk.fragments.ChatsFragment
 import dev.nguyen.crewtalk.fragments.SearchFragment
 import dev.nguyen.crewtalk.fragments.SettingsFragment
@@ -21,12 +25,21 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
 
+    // Firebase users
+    var refUsers: DatabaseReference? = null
+    var firebaseUser: FirebaseUser? = null
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setSupportActionBar(binding.toolbarMain)
+
+        // firebase user
+        firebaseUser = FirebaseAuth.getInstance().currentUser
+        refUsers = FirebaseDatabase.getInstance().reference.child("Users").child(firebaseUser!!.uid)
 
         val toolbar: Toolbar = binding.toolbarMain
         setSupportActionBar(toolbar)
