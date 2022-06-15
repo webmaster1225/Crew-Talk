@@ -5,6 +5,8 @@
       <map>
         <entry key="app/src/main/res/drawable/background_left.xml" value="0.1095" />
         <entry key="app/src/main/res/drawable/background_right.xml" value="0.1095" />
+        <entry key="app/src/main/res/drawable/offline_dot.xml" value="0.1095" />
+        <entry key="app/src/main/res/drawable/online_dot.xml" value="0.1095" />
         <entry key="app/src/main/res/drawable/round_btn.xml" value="0.1095" />
         <entry key="app/src/main/res/drawable/rounded_btn.xml" value="0.1095" />
         <entry key="app/src/main/res/font/galada.xml" value="0.20277777777777778" />
@@ -18,6 +20,7 @@
         <entry key="app/src/main/res/layout/fragment_search.xml" value="0.24547101449275363" />
         <entry key="app/src/main/res/layout/fragment_second.xml" value="0.24547101449275363" />
         <entry key="app/src/main/res/layout/fragment_settings.xml" value="0.24547101449275363" />
+        <entry key="app/src/main/res/layout/user_search_item_layout.xml" value="0.20470275878906258" />
         <entry key="app/src/main/res/menu/menu_main.xml" value="0.3098958333333333" />
       </map>
     </option>
