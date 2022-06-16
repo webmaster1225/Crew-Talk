@@ -33,7 +33,7 @@ class SearchFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
 
-        // Inflate the layout for this fragment
+        // Inflate the fragment_search layout for this fragment
         val view: View =  inflater.inflate(R.layout.fragment_search, container, false)
 
         // declare Views
@@ -44,7 +44,10 @@ class SearchFragment : Fragment() {
         recyclerView!!.setHasFixedSize(true)
         recyclerView!!.layoutManager = LinearLayoutManager(context)
 
-
+        // retrieveAllUser() will
+        // 1. retrieve user and add them to mUsers array
+        // 2. Apply userAdapter to recyclerView's adapter to show the users
+        // 3. show users on the searchFragment layout
         retrieveAllUser()
 
         // make searchUsersET EditText view a live search
@@ -54,6 +57,11 @@ class SearchFragment : Fragment() {
             }
 
             override fun onTextChanged(cs: CharSequence?, start: Int, before: Int, count: Int) {
+                // searchForUser() will
+                // 1. retrieve user and add them to mUsers array
+                // 2. Apply userAdapter to recyclerView's adapter to show the users
+                // 3. show users on the searchFragment layout
+                // basically same as retrieveAllUser() but searchForUser() shows only relevant users
                 searchForUser(cs.toString().toLowerCase())
             }
 
@@ -69,23 +77,27 @@ class SearchFragment : Fragment() {
     }
 
     private fun retrieveAllUser() {
+        // current user
         val firebaseUserID = FirebaseAuth
             .getInstance()
             .currentUser!!
             .uid
 
-
+        // all the users in the database
         val refUsers = FirebaseDatabase
             .getInstance()
             .reference
             .child("Users")
 
+
         refUsers.addValueEventListener(object : ValueEventListener{
+
             override fun onDataChange(p0: DataSnapshot) {
 
                 // Clear mUsers first
                 (mUsers as ArrayList<Users>).clear()
 
+                // if searchEditText == "" -> show all users
                 if (searchEditText!!.text.toString().equals("")) {
                     // for every user/snapshot in the DataSnapShot -> add every user to the mUsers arrayList
                     for (snapshot in p0.children) {
@@ -100,6 +112,7 @@ class SearchFragment : Fragment() {
 
                     // init userAdapter with given values
                     userAdapter = UserAdapter(context!!, mUsers!!, false)
+                    // Apply userAdapter to recyclerView's adapter to show the users
                     recyclerView!!.adapter = userAdapter
                 }
             }
@@ -112,6 +125,8 @@ class SearchFragment : Fragment() {
     }
 
     private fun searchForUser(str: String) {
+
+        // current user
         val firebaseUserID = FirebaseAuth
             .getInstance()
             .currentUser!!
@@ -121,7 +136,7 @@ class SearchFragment : Fragment() {
             .getInstance()
             .reference
             .child("Users")
-            .orderByChild("search")
+            .orderByChild("search") // "search" is an attribute from user object
             .startAt(str)
             .endAt(str + "\uf8ff")
 
