@@ -32,7 +32,7 @@ class UserAdapter (
         // The layout inflater knows how to inflate
         // an XML layout into a hierarchy of view objects.
 
-        // Declare layout_id for View Holder
+        // Declare layout_id for View Holder -- detect layout_id
         val adapterLayout: View = LayoutInflater
             .from(parent.context)
             .inflate(R.layout.user_search_item_layout, parent, false) // adapterLayout holds a reference to the list item view
