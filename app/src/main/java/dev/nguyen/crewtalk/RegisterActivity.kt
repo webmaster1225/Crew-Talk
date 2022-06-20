@@ -64,7 +64,11 @@ class RegisterActivity : AppCompatActivity() {
                         fireBaseUserId = mAuth.currentUser!!.uid
 
                         // Now create reference user
-                        refUser = FirebaseDatabase.getInstance().reference.child("Users").child(fireBaseUserId)
+                        refUser = FirebaseDatabase
+                            .getInstance()
+                            .reference
+                            .child("Users")
+                            .child(fireBaseUserId)
 
                         val userHashMap = HashMap<String, Any>()
                         userHashMap["uid"] = fireBaseUserId

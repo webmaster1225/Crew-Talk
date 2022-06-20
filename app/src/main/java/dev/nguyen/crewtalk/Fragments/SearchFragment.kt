@@ -27,7 +27,6 @@ class SearchFragment : Fragment() {
     private var recyclerView: RecyclerView? = null
     private var searchEditText: EditText? = null
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -66,9 +65,8 @@ class SearchFragment : Fragment() {
             }
 
             override fun afterTextChanged(s: Editable?) {
-                TODO("Not yet implemented")
-            }
 
+            }
         })
 
 

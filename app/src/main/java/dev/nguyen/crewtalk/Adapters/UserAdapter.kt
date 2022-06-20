@@ -23,9 +23,9 @@ class UserAdapter (
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         var userameTxt : TextView = view.findViewById(R.id.username)
         var profileImageView : CircleImageView = view.findViewById(R.id.profile_image)
-        var onlineTxt : TextView = view.findViewById(R.id.image_online)
-        var offlineTxt : TextView = view.findViewById(R.id.image_offline)
-        var lastMessageTxt : TextView = view.findViewById(R.id.message_last)
+//        var onlineTxt : TextView = view.findViewById(R.id.image_online)
+//        var offlineTxt : TextView = view.findViewById(R.id.image_offline)
+//        var lastMessageTxt : TextView = view.findViewById(R.id.message_last)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
