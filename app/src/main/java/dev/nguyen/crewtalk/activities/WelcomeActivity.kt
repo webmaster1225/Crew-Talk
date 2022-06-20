@@ -1,4 +1,4 @@
-package dev.nguyen.crewtalk
+package dev.nguyen.crewtalk.activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity

@@ -1,4 +1,4 @@
-package dev.nguyen.crewtalk.Models
+package dev.nguyen.crewtalk.models
 
 class Users {
     private var uid: String = ""

@@ -15,8 +15,8 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
-import dev.nguyen.crewtalk.Adapters.UserAdapter
-import dev.nguyen.crewtalk.Models.Users
+import dev.nguyen.crewtalk.adapters.UserAdapter
+import dev.nguyen.crewtalk.models.Users
 import dev.nguyen.crewtalk.R
 
 

@@ -1,4 +1,4 @@
-package dev.nguyen.crewtalk
+package dev.nguyen.crewtalk.activities
 
 import android.content.Intent
 import android.os.Bundle
@@ -15,7 +15,8 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.*
 import com.squareup.picasso.Picasso
-import dev.nguyen.crewtalk.Models.Users
+import dev.nguyen.crewtalk.models.Users
+import dev.nguyen.crewtalk.R
 import dev.nguyen.crewtalk.fragments.ChatsFragment
 import dev.nguyen.crewtalk.fragments.SearchFragment
 import dev.nguyen.crewtalk.fragments.SettingsFragment

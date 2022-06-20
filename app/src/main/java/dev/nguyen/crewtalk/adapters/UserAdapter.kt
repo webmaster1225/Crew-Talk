@@ -1,4 +1,4 @@
-package dev.nguyen.crewtalk.Adapters
+package dev.nguyen.crewtalk.adapters
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -8,9 +8,8 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 import de.hdodenhof.circleimageview.CircleImageView
-import dev.nguyen.crewtalk.Models.Users
+import dev.nguyen.crewtalk.models.Users
 import dev.nguyen.crewtalk.R
-import dev.nguyen.crewtalk.databinding.ActivityLoginBinding
 
 class UserAdapter (
     // "private val" added here help declare the variables -- no need to init the vars inside the class body

@@ -1,4 +1,4 @@
-package dev.nguyen.crewtalk
+package dev.nguyen.crewtalk.activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -6,9 +6,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.DatabaseReference
 import dev.nguyen.crewtalk.databinding.ActivityLoginBinding
-import dev.nguyen.crewtalk.databinding.ActivityRegisterBinding
 
 class LoginActivity : AppCompatActivity() {
 
