@@ -1,5 +1,6 @@
 package dev.nguyen.crewtalk.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -8,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
@@ -18,6 +20,7 @@ import com.google.firebase.database.ValueEventListener
 import dev.nguyen.crewtalk.adapters.UserAdapter
 import dev.nguyen.crewtalk.models.Users
 import dev.nguyen.crewtalk.R
+import dev.nguyen.crewtalk.activities.ChatActivity
 
 
 class SearchFragment : Fragment() {
@@ -112,6 +115,14 @@ class SearchFragment : Fragment() {
                     userAdapter = UserAdapter(context!!, mUsers!!, false)
                     // Apply userAdapter to recyclerView's adapter to show the users
                     recyclerView!!.adapter = userAdapter
+                    userAdapter!!.setOnItemClickListener(object: UserAdapter.onItemClickListener{
+                        override fun onItemClick(position: Int) {
+                            val intent = Intent(activity, ChatActivity::class.java)
+                            intent.putExtra("userID", (mUsers as ArrayList<Users>)[position].getUid())
+                            startActivity(intent)
+                        }
+
+                    })
                 }
             }
 
