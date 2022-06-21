@@ -168,6 +168,14 @@ class SearchFragment : Fragment() {
                 // init userAdapter with given values
                 userAdapter = UserAdapter(context!!, mUsers!!, false)
                 recyclerView!!.adapter = userAdapter
+                userAdapter!!.setOnItemClickListener(object: UserAdapter.onItemClickListener{
+                    override fun onItemClick(position: Int) {
+                        val intent = Intent(activity, ChatActivity::class.java)
+                        intent.putExtra("userId", (mUsers as ArrayList<Users>)[position].getUid())
+                        startActivity(intent)
+                    }
+
+                })
             }
 
             override fun onCancelled(error: DatabaseError) {

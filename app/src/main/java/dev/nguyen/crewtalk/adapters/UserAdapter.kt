@@ -49,7 +49,7 @@ class UserAdapter (
             .from(parent.context)
             .inflate(R.layout.user_search_item_layout, parent, false) // adapterLayout holds a reference to the list item view
 
-        return UserAdapter.ViewHolder(adapterLayout, mListener)
+        return ViewHolder(adapterLayout, mListener)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
