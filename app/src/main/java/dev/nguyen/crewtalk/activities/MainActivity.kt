@@ -17,7 +17,6 @@ import com.google.firebase.database.*
 import com.squareup.picasso.Picasso
 import dev.nguyen.crewtalk.models.Users
 import dev.nguyen.crewtalk.R
-import dev.nguyen.crewtalk.fragments.ChatsFragment
 import dev.nguyen.crewtalk.fragments.SearchFragment
 import dev.nguyen.crewtalk.fragments.SettingsFragment
 import dev.nguyen.crewtalk.databinding.ActivityMainBinding
@@ -51,7 +50,7 @@ class MainActivity : AppCompatActivity() {
         val viewPager: ViewPager = binding.viewPager
         val viewPagerAdapter = ViewPagerAdapter(supportFragmentManager)
 
-        viewPagerAdapter.addFragment(ChatsFragment(), "Chats")
+//        viewPagerAdapter.addFragment(ChatsFragment(), "Chats")
         viewPagerAdapter.addFragment(SearchFragment(), "Search")
         viewPagerAdapter.addFragment(SettingsFragment(), "Settings")
 
