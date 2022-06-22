@@ -13,6 +13,7 @@
         android:layout_height="50dp"
         android:gravity="center_horizontal"
         android:orientation="horizontal"
+        android:background="@color/colorPrimaryDark"
         >
 
         <ImageView
@@ -22,6 +23,7 @@
             android:layout_weight="0.5"
             android:layout_gravity="center"
             android:src="@drawable/ic_back"
+            app:tint="@android:color/white"
             />
 
         <TextView
@@ -34,6 +36,7 @@
             android:text=""
             android:textSize="20sp"
             android:textStyle="bold"
+            android:textColor="@android:color/white"
             />
 
         <de.hdodenhof.circleimageview.CircleImageView
