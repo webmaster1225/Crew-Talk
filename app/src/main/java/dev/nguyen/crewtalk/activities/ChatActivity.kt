@@ -8,6 +8,10 @@ class ChatActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityChatBinding
 
+    // Firebase users
+    var refUsers: DatabaseReference? = null
+    var firebaseUser: FirebaseUser? = null
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,5 +25,14 @@ class ChatActivity : AppCompatActivity() {
             finish()
         }
 
+        // get the userID passed in from Intent from RecyclerView
+        var intent = intent
+        var userID = intent.getStringExtra("userID")
+
+        // get current firebaseUser
+        firebaseUser = FirebaseAuth.getInstance().currentUser
+
+        // get refUser from Intent
+        refUsers = FirebaseDatabase.getInstance().reference.child("Users").child(userID!!)
     }
 }
