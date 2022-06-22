@@ -78,7 +78,8 @@
                 android:layout_width="50dp"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_send_btn"
-                app:tint="@color/colorPrimary"
+                android:background="@drawable/send_btn_bg"
+                android:padding="10dp"
                 />
 
         </LinearLayout>
