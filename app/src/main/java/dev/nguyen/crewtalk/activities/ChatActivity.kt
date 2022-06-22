@@ -55,5 +55,29 @@ class ChatActivity : AppCompatActivity() {
             }
             override fun onCancelled(error: DatabaseError) {}
         })
+
+        binding.etSendBtn.setOnClickListener{
+            var message: String = binding.etMsg.text.toString()
+
+            if (message.isEmpty()) {
+                Toast.makeText(this, "Message is empty", Toast.LENGTH_SHORT).show()
+            } else {
+                sendMessage(firebaseUser!!.uid,userID, message)
+                Toast.makeText(this, "Message sent", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
+    private fun sendMessage(senderID: String, receiverID: String, message: String) {
+
+        var reference: DatabaseReference? = FirebaseDatabase.getInstance().reference
+        var hashMap: HashMap<String, String> = HashMap()
+
+        hashMap.put("senderID", senderID)
+        hashMap.put("receiverID", receiverID)
+        hashMap.put("message", message)
+
+        reference!!.child("Chat").push().setValue(hashMap)
+
     }
 }
