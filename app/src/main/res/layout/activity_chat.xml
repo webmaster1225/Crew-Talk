@@ -9,6 +9,7 @@
     android:orientation="horizontal">
 
     <LinearLayout
+        android:id="@+id/helpBar"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:gravity="center_horizontal"
@@ -48,6 +49,8 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/chatRecyclerView"
+        android:layout_below="@id/helpBar"
+        android:layout_above="@id/sendMsgBar"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
