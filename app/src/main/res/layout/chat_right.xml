@@ -27,7 +27,7 @@
             tools:text="logano"/>
 
         <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/userProfilePic"
+            android:id="@+id/tvUserProf"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_marginLeft="10dp"
