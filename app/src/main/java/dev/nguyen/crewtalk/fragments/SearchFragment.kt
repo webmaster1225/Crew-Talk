@@ -93,7 +93,7 @@ class SearchFragment : Fragment() {
 
         refUsers.addValueEventListener(object : ValueEventListener{
 
-            override fun onDataChange(p0: DataSnapshot) {
+            override fun onDataChange(snapshot: DataSnapshot) {
 
                 // Clear mUsers first
                 (mUsers as ArrayList<Users>).clear()
@@ -101,9 +101,9 @@ class SearchFragment : Fragment() {
                 // if searchEditText == "" -> show all users
                 if (searchEditText!!.text.toString().equals("")) {
                     // for every user/snapshot in the DataSnapShot -> add every user to the mUsers arrayList
-                    for (snapshot in p0.children) {
+                    for (dataSnapshot: DataSnapshot in snapshot.children) {
                         // retrieve user's info from snapshot value
-                        val user: Users? = snapshot.getValue(Users::class.java)
+                        val user: Users? = dataSnapshot.getValue(Users::class.java)
 
                         // except your own account, add all the found results to the mUsers account array list
                         if (!(user!!.getUid().equals(firebaseUserID))) {
