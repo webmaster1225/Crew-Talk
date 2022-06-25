@@ -3,7 +3,6 @@ package dev.nguyen.crewtalk.activities
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -14,7 +13,6 @@ import com.squareup.picasso.Picasso
 import dev.nguyen.crewtalk.R
 import dev.nguyen.crewtalk.adapters.ChatAdapter
 import dev.nguyen.crewtalk.databinding.ActivityChatBinding
-import dev.nguyen.crewtalk.fragments.SearchFragment
 import dev.nguyen.crewtalk.models.Chats
 import dev.nguyen.crewtalk.models.Users
 
@@ -23,8 +21,8 @@ class ChatActivity : AppCompatActivity() {
     private lateinit var binding: ActivityChatBinding
 
     // Firebase users
-    var refUsers: DatabaseReference? = null
-    var firebaseUser: FirebaseUser? = null
+    private var databaseReference: DatabaseReference? = null
+    private var firebaseUser: FirebaseUser? = null
 
     private var chatList = ArrayList<Chats>()
     private var recyclerView: RecyclerView? = null
@@ -54,10 +52,10 @@ class ChatActivity : AppCompatActivity() {
         firebaseUser = FirebaseAuth.getInstance().currentUser
 
         // get refUser from Intent
-        refUsers = FirebaseDatabase.getInstance().reference.child("Users").child(userID!!)
+        databaseReference = FirebaseDatabase.getInstance().reference.child("Users").child(userID!!)
 
         // Update username and user profile pic based on refUsers
-        refUsers!!.addValueEventListener(object: ValueEventListener{
+        databaseReference!!.addValueEventListener(object: ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
                 if (snapshot.exists()) {
                     val user: Users? = snapshot.getValue(Users::class.java)
@@ -87,8 +85,8 @@ class ChatActivity : AppCompatActivity() {
     private fun sendMessage(senderID: String, receiverID: String, message: String) {
 
         var reference: DatabaseReference? = FirebaseDatabase.getInstance().reference
-        var hashMap: HashMap<String, String> = HashMap()
 
+        var hashMap: HashMap<String, String> = HashMap()
         hashMap.put("senderID", senderID)
         hashMap.put("receiverID", receiverID)
         hashMap.put("message", message)
@@ -97,9 +95,9 @@ class ChatActivity : AppCompatActivity() {
     }
 
     private fun readMessage(senderId: String, receiverId: String) {
-        val databaseReference: DatabaseReference = FirebaseDatabase.getInstance().reference.child("Chat")
+        val databaseRef: DatabaseReference = FirebaseDatabase.getInstance().reference.child("Chat")
 
-        databaseReference.addValueEventListener(object: ValueEventListener{
+        databaseRef.addValueEventListener(object: ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
                 chatList.clear()
 
