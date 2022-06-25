@@ -29,7 +29,7 @@ class ChatAdapter (
 
     override fun getItemViewType(position: Int): Int {
         firebaseUser = FirebaseAuth.getInstance().currentUser
-        return if (mChats[position].senderId == firebaseUser!!.uid) {
+        return if (mChats[position].getSenderId() == firebaseUser!!.uid) {
             MESSAGE_TYPE_RIGHT
         } else {
             MESSAGE_TYPE_LEFT
@@ -58,7 +58,7 @@ class ChatAdapter (
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val chat: Chats = mChats[position]
-        holder.txtUserName.text = chat.message
+        holder.txtUserName.text = chat.getMessage()
 
         // get firebase user
 //        refUsers = FirebaseDatabase.getInstance().reference.child("Users").child()
