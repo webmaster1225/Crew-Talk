@@ -3,6 +3,7 @@ package dev.nguyen.crewtalk.activities
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -87,9 +88,9 @@ class ChatActivity : AppCompatActivity() {
         var reference: DatabaseReference? = FirebaseDatabase.getInstance().reference
 
         var hashMap: HashMap<String, String> = HashMap()
-        hashMap.put("senderID", senderID)
-        hashMap.put("receiverID", receiverID)
-        hashMap.put("message", message)
+        hashMap["senderID"] = senderID
+        hashMap["receiverID"] = receiverID
+        hashMap["message"] = message
 
         reference!!.child("Chat").push().setValue(hashMap)
     }
@@ -104,9 +105,10 @@ class ChatActivity : AppCompatActivity() {
                 // loop through snapshot's children to get chats
                 for (dataSnapshot: DataSnapshot in snapshot.children) {
                     val chat = dataSnapshot.getValue(Chats::class.java)
-                    if ((chat!!.senderId.equals(senderId) && chat.receiverId.equals(receiverId)) ||
-                        (chat.senderId.equals(receiverId) && chat.receiverId.equals(senderId))
+                    if (((chat!!.getSenderId() == senderId) && (chat.getReceiverId() == receiverId)) ||
+                        ((chat.getSenderId() == receiverId) && (chat.getReceiverId() == senderId))
                     ) {
+                        Log.d("chat", chat.getMessage())
                         chatList.add(chat)
                     }
                 }
