@@ -28,18 +28,6 @@ class UserAdapter (
         mListener = listener
     }
 
-
-    class ViewHolder(view: View, listener: onItemClickListener) : RecyclerView.ViewHolder(view) {
-        var userameTxt : TextView = view.findViewById(R.id.username)
-        var profileImageView : CircleImageView = view.findViewById(R.id.profile_image)
-
-        init {
-            view.setOnClickListener{
-                listener.onItemClick(adapterPosition)
-            }
-        }
-    }
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         // The layout inflater knows how to inflate
         // an XML layout into a hierarchy of view objects.
@@ -60,5 +48,16 @@ class UserAdapter (
 
     override fun getItemCount(): Int {
         return mUsers.size
+    }
+
+    class ViewHolder(view: View, listener: onItemClickListener) : RecyclerView.ViewHolder(view) {
+        var userameTxt : TextView = view.findViewById(R.id.username)
+        var profileImageView : CircleImageView = view.findViewById(R.id.profile_image)
+
+        init {
+            view.setOnClickListener{
+                listener.onItemClick(adapterPosition)
+            }
+        }
     }
 }

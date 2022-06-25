@@ -9,10 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
-import com.squareup.picasso.Picasso
 import de.hdodenhof.circleimageview.CircleImageView
-import dev.nguyen.crewtalk.models.Users
 import dev.nguyen.crewtalk.models.Chats
 import dev.nguyen.crewtalk.R
 
@@ -29,27 +26,35 @@ class ChatAdapter (
     var firebaseUser: FirebaseUser? = null
     var refUsers: DatabaseReference? = null
 
+
+    override fun getItemViewType(position: Int): Int {
+        firebaseUser = FirebaseAuth.getInstance().currentUser
+        return if (mChats[position].senderId == firebaseUser!!.uid) {
+            MESSAGE_TYPE_RIGHT
+        } else {
+            MESSAGE_TYPE_LEFT
+        }
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        if (viewType == MESSAGE_TYPE_RIGHT) {
+        return if (viewType == MESSAGE_TYPE_RIGHT) {
             val view =
                 LayoutInflater
                     .from(parent.context)
                     .inflate(R.layout.chat_right, parent, false)
-            return ViewHolder(view)
+            ViewHolder(view)
         } else {
             val view =
                 LayoutInflater
                     .from(parent.context)
                     .inflate(R.layout.chat_left, parent, false)
-            return ViewHolder(view)
+            ViewHolder(view)
         }
-
     }
 
     override fun getItemCount(): Int {
         return mChats.size
     }
-
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val chat: Chats = mChats[position]
@@ -60,19 +65,9 @@ class ChatAdapter (
 //        Picasso.get().load(user.getProfile()).placeholder(R.drawable.profile_picture).into(holder.imgUser)
     }
 
-
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val txtUserName: TextView = view.findViewById(R.id.tvMessage)
         val imgUser: CircleImageView = view.findViewById(R.id.tvUserProf)
-    }
-
-    override fun getItemViewType(position: Int): Int {
-        firebaseUser = FirebaseAuth.getInstance().currentUser
-        if (mChats[position].senderId == firebaseUser!!.uid) {
-            return MESSAGE_TYPE_RIGHT
-        } else {
-            return MESSAGE_TYPE_LEFT
-        }
     }
 
 }
