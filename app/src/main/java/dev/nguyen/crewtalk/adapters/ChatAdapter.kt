@@ -1,6 +1,7 @@
 package dev.nguyen.crewtalk.adapters
 
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -38,12 +39,14 @@ class ChatAdapter (
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return if (viewType == MESSAGE_TYPE_RIGHT) {
+            Log.d("viewHolder-1", viewType.toString())
             val view =
                 LayoutInflater
                     .from(parent.context)
                     .inflate(R.layout.chat_right, parent, false)
             ViewHolder(view)
         } else {
+            Log.d("viewHolder-2", viewType.toString())
             val view =
                 LayoutInflater
                     .from(parent.context)

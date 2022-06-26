@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -36,7 +37,7 @@ class ChatActivity : AppCompatActivity() {
 
         recyclerView = binding.chatRecyclerView
         recyclerView!!.setHasFixedSize(true)
-        recyclerView!!.layoutManager = LinearLayoutManager(this)
+        recyclerView!!.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
 
         // setup intent for back img button
         binding.icBack.setOnClickListener{
@@ -66,6 +67,7 @@ class ChatActivity : AppCompatActivity() {
             }
             override fun onCancelled(error: DatabaseError) {}
         })
+
 
         binding.etSendBtn.setOnClickListener{
             var message: String = binding.etMsg.text.toString()
@@ -108,9 +110,12 @@ class ChatActivity : AppCompatActivity() {
                     if (((chat!!.getSenderId() == senderId) && (chat.getReceiverId() == receiverId)) ||
                         ((chat.getSenderId() == receiverId) && (chat.getReceiverId() == senderId))
                     ) {
-                        Log.d("chat", chat.getMessage())
                         chatList.add(chat)
                     }
+                }
+
+                chatList.forEach{
+                    Log.d("chat", it.getMessage().toString())
                 }
 
                 val chatAdapter = ChatAdapter(this@ChatActivity, chatList)

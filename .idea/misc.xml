@@ -16,7 +16,7 @@
         <entry key="app/src/main/res/drawable/rounded_btn.xml" value="0.1095" />
         <entry key="app/src/main/res/drawable/send_btn_bg.xml" value="0.15191497802734377" />
         <entry key="app/src/main/res/font/galada.xml" value="0.20277777777777778" />
-        <entry key="app/src/main/res/layout/activity_chat.xml" value="0.22939574329565604" />
+        <entry key="app/src/main/res/layout/activity_chat.xml" value="0.16615111438940605" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.24547101449275363" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.20644836425781252" />
         <entry key="app/src/main/res/layout/activity_register.xml" value="0.24547101449275363" />
@@ -26,7 +26,7 @@
         <entry key="app/src/main/res/layout/content_main.xml" value="0.24547101449275363" />
         <entry key="app/src/main/res/layout/fragment_chats.xml" value="0.2052381653716599" />
         <entry key="app/src/main/res/layout/fragment_first.xml" value="0.24547101449275363" />
-        <entry key="app/src/main/res/layout/fragment_search.xml" value="0.24547101449275363" />
+        <entry key="app/src/main/res/layout/fragment_search.xml" value="0.2622724671294724" />
         <entry key="app/src/main/res/layout/fragment_second.xml" value="0.24547101449275363" />
         <entry key="app/src/main/res/layout/fragment_settings.xml" value="0.24547101449275363" />
         <entry key="app/src/main/res/layout/user_search_item_layout.xml" value="0.20470275878906258" />
