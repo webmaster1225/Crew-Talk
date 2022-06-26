@@ -4,9 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".activities.ChatActivity"
-    android:orientation="horizontal">
+    android:layout_height="wrap_content">
 
     <LinearLayout
         android:id="@+id/helpBar"
@@ -52,7 +50,7 @@
         android:layout_below="@id/helpBar"
         android:layout_above="@id/sendMsgBar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="wrap_content" />
 
     <RelativeLayout
         android:id="@+id/sendMsgBar"
