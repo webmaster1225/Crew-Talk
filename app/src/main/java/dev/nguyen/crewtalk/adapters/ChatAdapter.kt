@@ -9,10 +9,13 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
-import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.*
+import com.google.firebase.ktx.Firebase
+import com.squareup.picasso.Picasso
 import de.hdodenhof.circleimageview.CircleImageView
 import dev.nguyen.crewtalk.models.Chats
 import dev.nguyen.crewtalk.R
+import dev.nguyen.crewtalk.models.Users
 
 class ChatAdapter (
     private val mContext: Context,
@@ -25,7 +28,7 @@ class ChatAdapter (
     private lateinit var receiverID: String
 
     var firebaseUser: FirebaseUser? = null
-    var refUsers: DatabaseReference? = null
+    var databaseRef: DatabaseReference? = null
 
 
     override fun getItemViewType(position: Int): Int {
@@ -39,14 +42,12 @@ class ChatAdapter (
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return if (viewType == MESSAGE_TYPE_RIGHT) {
-            Log.d("viewHolder-1", viewType.toString())
             val view =
                 LayoutInflater
                     .from(parent.context)
                     .inflate(R.layout.chat_right, parent, false)
             ViewHolder(view)
         } else {
-            Log.d("viewHolder-2", viewType.toString())
             val view =
                 LayoutInflater
                     .from(parent.context)
@@ -64,8 +65,19 @@ class ChatAdapter (
         holder.txtUserName.text = chat.getMessage()
 
         // get firebase user
-//        refUsers = FirebaseDatabase.getInstance().reference.child("Users").child()
-//        Picasso.get().load(user.getProfile()).placeholder(R.drawable.profile_picture).into(holder.imgUser)
+        databaseRef = FirebaseDatabase.getInstance().reference.child("Users").child(chat.getSenderId())
+
+        databaseRef!!.addValueEventListener(object: ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                for (dataSnapshot: DataSnapshot in snapshot.children) {
+                    val user: Users? = snapshot.getValue(Users::class.java)
+                    Picasso.get().load(user!!.getProfile()).placeholder(R.drawable.profile_picture).into(holder.imgUser)
+                }
+            }
+
+            override fun onCancelled(error: DatabaseError) {}
+
+        })
     }
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
