@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -170,7 +171,7 @@ class SearchFragment : Fragment() {
                 userAdapter!!.setOnItemClickListener(object: UserAdapter.onItemClickListener{
                     override fun onItemClick(position: Int) {
                         val intent = Intent(activity, ChatActivity::class.java)
-                        intent.putExtra("userId", (mUsers as ArrayList<Users>)[position].getUid())
+                        intent.putExtra("userID", (mUsers as ArrayList<Users>)[position].getUid())
                         startActivity(intent)
                     }
 
