@@ -12,8 +12,16 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="end">
+        android:orientation="horizontal">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/tvUserProf"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="5dp"
+            android:src="@drawable/ic_profile"
+            />
 
         <TextView
             android:id="@+id/tvMessage"
@@ -24,16 +32,7 @@
             android:background="@drawable/chat_right_side_bg"
             android:textSize="16sp"
             android:textColor="@android:color/black"
-            tools:text="logano"/>
-
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/tvUserProf"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginEnd="5dp"
-            android:src="@drawable/ic_profile"
-            />
+            tools:text="logano" />
 
     </LinearLayout>
 
