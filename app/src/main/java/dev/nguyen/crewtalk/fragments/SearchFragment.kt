@@ -78,7 +78,7 @@ class SearchFragment : Fragment() {
 
     private fun retrieveAllUser() {
         // current user
-        val firebaseUserID = FirebaseAuth
+        val currentUserId = FirebaseAuth
             .getInstance()
             .currentUser!!
             .uid
@@ -88,7 +88,6 @@ class SearchFragment : Fragment() {
             .getInstance()
             .reference
             .child("Users")
-
 
         refUsers.addValueEventListener(object : ValueEventListener{
 
@@ -105,7 +104,7 @@ class SearchFragment : Fragment() {
                         val user: Users? = dataSnapshot.getValue(Users::class.java)
 
                         // except your own account, add all the found results to the mUsers account array list
-                        if (!(user!!.getUid().equals(firebaseUserID))) {
+                        if (!(user!!.getUid().equals(currentUserId))) {
                             (mUsers as ArrayList<Users>).add(user)
                         }
                     }

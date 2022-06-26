@@ -54,6 +54,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
+    <TextView
+        android:id="@+id/welcomeMsg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="✌️ Hit him up to start a conversation ✌️"
+        android:layout_below="@+id/helpBar"
+        android:layout_above="@+id/sendMsgBar"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:visibility="gone"
+        />
+
     <RelativeLayout
         android:id="@+id/sendMsgBar"
         android:layout_width="match_parent"
