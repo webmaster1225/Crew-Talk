@@ -69,7 +69,8 @@ class ChatAdapter (
             override fun onDataChange(snapshot: DataSnapshot) {
                 for (dataSnapshot: DataSnapshot in snapshot.children) {
                     val user: Users? = snapshot.getValue(Users::class.java)
-                    Picasso.get().load(user!!.getProfile()).placeholder(R.drawable.profile_picture).into(holder.imgUser)
+                    holder.chatUserName!!.text = user!!.getUserName()
+                    Picasso.get().load(user.getProfile()).placeholder(R.drawable.profile_picture).into(holder.imgUser)
                 }
             }
 
@@ -80,6 +81,7 @@ class ChatAdapter (
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val txtUserName: TextView = view.findViewById(R.id.tvMessage)
+        val chatUserName: TextView? = view.findViewById(R.id.chatUserName)
         val imgUser: CircleImageView = view.findViewById(R.id.tvUserProf)
     }
 

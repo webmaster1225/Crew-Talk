@@ -23,16 +23,29 @@
             android:src="@drawable/ic_profile"
             />
 
-        <TextView
-            android:id="@+id/tvMessage"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="12dp"
-            android:layout_marginTop="5dp"
-            android:background="@drawable/chat_left_side_bg"
-            android:textSize="16sp"
-            android:textColor="@android:color/black"
-            tools:text="logano" />
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/chatUserName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Logano"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/tvMessage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="12dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/chat_left_side_bg"
+                android:textSize="16.5sp"
+                android:textColor="@android:color/black"
+                tools:text="The message.." />
+        </LinearLayout>
 
     </LinearLayout>
 
