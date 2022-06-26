@@ -1,7 +1,6 @@
 package dev.nguyen.crewtalk.adapters
 
 import android.content.Context
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -42,7 +41,7 @@ class UserAdapter (
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val user: Users = mUsers[position]
-        holder.userameTxt.text = user.getUserName()
+        holder.userNameTxt.text = user.getUserName()
         Picasso.get().load(user.getProfile()).placeholder(R.drawable.profile_picture).into(holder.profileImageView)
     }
 
@@ -51,7 +50,7 @@ class UserAdapter (
     }
 
     class ViewHolder(view: View, listener: UserAdapter.onItemClickListener) : RecyclerView.ViewHolder(view) {
-        var userameTxt : TextView = view.findViewById(R.id.username)
+        var userNameTxt : TextView = view.findViewById(R.id.username)
         var profileImageView : CircleImageView = view.findViewById(R.id.profile_image)
 
         init {

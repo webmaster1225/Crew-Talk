@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -97,7 +98,7 @@ class SearchFragment : Fragment() {
                 (mUsers as ArrayList<Users>).clear()
 
                 // if searchEditText == "" -> show all users
-                if (searchEditText!!.text.toString().equals("")) {
+                if (searchEditText!!.text.toString() == "") {
                     // for every user/snapshot in the DataSnapShot -> add every user to the mUsers arrayList
                     for (dataSnapshot: DataSnapshot in snapshot.children) {
                         // retrieve user's info from snapshot value
@@ -143,9 +144,10 @@ class SearchFragment : Fragment() {
             .getInstance()
             .reference
             .child("Users")
-            .orderByChild("search") // "search" is an attribute from user object
+            .orderByChild("search")
             .startAt(str)
             .endAt(str + "\uf8ff")
+
 
         queryUsers.addValueEventListener(object : ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
@@ -155,8 +157,7 @@ class SearchFragment : Fragment() {
                 // for every user/snapshot in the DataSnapShot -> add every user to the mUsers arrayList
                 for (dataSnapshot: DataSnapshot in snapshot.children) {
                     // retrieve user's info from snapshot value
-                    val user: Users? = snapshot.getValue(Users::class.java)
-
+                    val user: Users? = dataSnapshot.getValue(Users::class.java)
                     // except your own account, add all the found results to the mUsers account array list
                     if (!(user!!.getUid().equals(firebaseUserID))) {
                         (mUsers as ArrayList<Users>).add(user)
