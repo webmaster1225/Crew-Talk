@@ -1,6 +1,7 @@
 package dev.nguyen.crewtalk.adapters
 
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,7 +16,6 @@ class UserAdapter (
     // "private val" added here help declare the variables -- no need to init the vars inside the class body
     private val mContext: Context,
     private val mUsers: List<Users>,
-    private val isChatCheck: Boolean,
 ) : RecyclerView.Adapter<UserAdapter.ViewHolder?>() {
 
     private lateinit var mListener: onItemClickListener
@@ -50,7 +50,7 @@ class UserAdapter (
         return mUsers.size
     }
 
-    class ViewHolder(view: View, listener: onItemClickListener) : RecyclerView.ViewHolder(view) {
+    class ViewHolder(view: View, listener: UserAdapter.onItemClickListener) : RecyclerView.ViewHolder(view) {
         var userameTxt : TextView = view.findViewById(R.id.username)
         var profileImageView : CircleImageView = view.findViewById(R.id.profile_image)
 
