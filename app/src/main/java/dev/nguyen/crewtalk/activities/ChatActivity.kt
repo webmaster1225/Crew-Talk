@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -28,6 +29,7 @@ class ChatActivity : AppCompatActivity() {
 
     private var chatList = ArrayList<Chats>()
     private var recyclerView: RecyclerView? = null
+    private var receiverID: String? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -47,14 +49,14 @@ class ChatActivity : AppCompatActivity() {
         }
 
         // get the userID passed in from Intent from RecyclerView
-        var intent = intent
-        var userID = intent.getStringExtra("userID")
+        val intent = intent
+        receiverID = intent.getStringExtra("userID")
 
         // get current firebaseUser
         firebaseUser = FirebaseAuth.getInstance().currentUser
 
         // get refUser from Intent
-        databaseReference = FirebaseDatabase.getInstance().reference.child("Users").child(userID!!)
+        databaseReference = FirebaseDatabase.getInstance().reference.child("Users").child(receiverID!!)
 
         // Update username and user profile pic based on refUsers
         databaseReference!!.addValueEventListener(object: ValueEventListener{
@@ -75,14 +77,14 @@ class ChatActivity : AppCompatActivity() {
             if (message.isEmpty()) {
                 Toast.makeText(this, "Message is empty", Toast.LENGTH_SHORT).show()
             } else {
-                sendMessage(firebaseUser!!.uid,userID, message)
+                sendMessage(firebaseUser!!.uid,receiverID!!, message)
                 binding.etMsg.setText("")
                 Toast.makeText(this, "Message sent", Toast.LENGTH_SHORT).show()
             }
         }
 
         // readMessage is always there
-        readMessage(firebaseUser!!.uid, userID)
+        readMessage(firebaseUser!!.uid, receiverID!!)
     }
 
     private fun sendMessage(senderID: String, receiverID: String, message: String) {
@@ -95,13 +97,16 @@ class ChatActivity : AppCompatActivity() {
         hashMap["message"] = message
 
         reference!!.child("Chat").push().setValue(hashMap)
+        binding.welcomeMsg.visibility = View.GONE
     }
 
     private fun readMessage(senderId: String, receiverId: String) {
         val databaseRef: DatabaseReference = FirebaseDatabase.getInstance().reference.child("Chat")
+        val receiverUserRef = FirebaseDatabase.getInstance().reference.child("Users").child(receiverID!!)
 
         databaseRef.addValueEventListener(object: ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
+
                 chatList.clear()
 
                 // loop through snapshot's children to get chats
@@ -116,6 +121,24 @@ class ChatActivity : AppCompatActivity() {
 
                 chatList.forEach{
                     Log.d("chat", it.getMessage().toString())
+                }
+
+                // If people never interact with each other before a.k.a chatList.length = 0
+                // then show welcomeMsg
+                if (chatList.size == 0) {
+
+                    receiverUserRef.addValueEventListener(object: ValueEventListener{
+                        override fun onDataChange(snapshot: DataSnapshot) {
+                            if (snapshot.exists()) {
+                                val receiver = snapshot.getValue(Users::class.java)
+                                binding.welcomeMsg.visibility = View.VISIBLE
+                                binding.welcomeMsg.text = "✌️ Hit ${receiver!!.getUserName()} up to start a conversation ✌️"
+                            }
+                        }
+
+                        override fun onCancelled(error: DatabaseError) {}
+
+                    })
                 }
 
                 val chatAdapter = ChatAdapter(this@ChatActivity, chatList)
