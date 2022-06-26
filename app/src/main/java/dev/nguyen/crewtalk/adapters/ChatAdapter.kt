@@ -1,7 +1,6 @@
 package dev.nguyen.crewtalk.adapters
 
 import android.content.Context
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,7 +9,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.*
-import com.google.firebase.ktx.Firebase
 import com.squareup.picasso.Picasso
 import de.hdodenhof.circleimageview.CircleImageView
 import dev.nguyen.crewtalk.models.Chats

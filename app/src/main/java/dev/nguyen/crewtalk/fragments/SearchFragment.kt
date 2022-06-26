@@ -4,7 +4,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -112,7 +111,7 @@ class SearchFragment : Fragment() {
                     }
 
                     // init userAdapter with given values
-                    userAdapter = UserAdapter(context!!, mUsers!!, false)
+                    userAdapter = UserAdapter(context!!, mUsers!!)
                     // Apply userAdapter to recyclerView's adapter to show the users
                     recyclerView!!.adapter = userAdapter
                     userAdapter!!.setOnItemClickListener(object: UserAdapter.onItemClickListener{
@@ -150,12 +149,12 @@ class SearchFragment : Fragment() {
             .endAt(str + "\uf8ff")
 
         queryUsers.addValueEventListener(object : ValueEventListener{
-            override fun onDataChange(p0: DataSnapshot) {
+            override fun onDataChange(snapshot: DataSnapshot) {
                 // Clear mUsers first
                 (mUsers as ArrayList<Users>).clear()
 
                 // for every user/snapshot in the DataSnapShot -> add every user to the mUsers arrayList
-                for (snapshot in p0.children) {
+                for (dataSnapshot: DataSnapshot in snapshot.children) {
                     // retrieve user's info from snapshot value
                     val user: Users? = snapshot.getValue(Users::class.java)
 
@@ -166,7 +165,7 @@ class SearchFragment : Fragment() {
                 }
 
                 // init userAdapter with given values
-                userAdapter = UserAdapter(context!!, mUsers!!, false)
+                userAdapter = UserAdapter(context!!, mUsers!!)
                 recyclerView!!.adapter = userAdapter
                 userAdapter!!.setOnItemClickListener(object: UserAdapter.onItemClickListener{
                     override fun onItemClick(position: Int) {
