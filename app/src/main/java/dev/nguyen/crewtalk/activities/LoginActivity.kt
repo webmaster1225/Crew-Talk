@@ -37,7 +37,7 @@ class LoginActivity : AppCompatActivity() {
         mAuth = FirebaseAuth.getInstance()
 
         // hit login btn
-        binding.loginBtn.setOnClickListener() {
+        binding.loginBtn.setOnClickListener {
             loginUser()
         }
     }
@@ -46,9 +46,9 @@ class LoginActivity : AppCompatActivity() {
         val email: String = binding.emailLogin.text.toString()
         val password: String = binding.passwordLogin.text.toString()
 
-         if (email.equals("")) {
+         if (email == ("")) {
             Toast.makeText(this, "Email can not be empty", Toast.LENGTH_SHORT).show()
-        } else if (password.equals("")) {
+        } else if (password == ("")) {
             Toast.makeText(this, "Password can not be empty", Toast.LENGTH_SHORT).show()
         } else {
             mAuth

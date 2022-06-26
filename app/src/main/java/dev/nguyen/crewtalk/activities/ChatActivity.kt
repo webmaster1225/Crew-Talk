@@ -71,7 +71,7 @@ class ChatActivity : AppCompatActivity() {
 
 
         binding.etSendBtn.setOnClickListener{
-            var message: String = binding.etMsg.text.toString()
+            val message: String = binding.etMsg.text.toString()
 
             if (message.isEmpty()) {
                 Toast.makeText(this, "Message is empty", Toast.LENGTH_SHORT).show()
@@ -88,14 +88,14 @@ class ChatActivity : AppCompatActivity() {
 
     private fun sendMessage(senderID: String, receiverID: String, message: String) {
 
-        var reference: DatabaseReference? = FirebaseDatabase.getInstance().reference
+        val reference: DatabaseReference = FirebaseDatabase.getInstance().reference
 
-        var hashMap: HashMap<String, String> = HashMap()
+        val hashMap: HashMap<String, String> = HashMap()
         hashMap["senderID"] = senderID
         hashMap["receiverID"] = receiverID
         hashMap["message"] = message
 
-        reference!!.child("Chat").push().setValue(hashMap)
+        reference.child("Chat").push().setValue(hashMap)
         binding.welcomeMsg.visibility = View.GONE
     }
 
@@ -119,7 +119,7 @@ class ChatActivity : AppCompatActivity() {
                 }
 
                 chatList.forEach{
-                    Log.d("chat", it.getMessage().toString())
+                    Log.d("chat", it.getMessage())
                 }
 
                 // If people never interact with each other before a.k.a chatList.length = 0

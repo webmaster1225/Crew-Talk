@@ -7,6 +7,7 @@
         <entry key="app/src/main/res/drawable/background_left.xml" value="0.1095" />
         <entry key="app/src/main/res/drawable/background_right.xml" value="0.1095" />
         <entry key="app/src/main/res/drawable/chat_left_side.xml" value="0.105" />
+        <entry key="app/src/main/res/drawable/chat_left_side_bg.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/chat_right_side.xml" value="0.105" />
         <entry key="app/src/main/res/drawable/ic_back.xml" value="0.105" />
         <entry key="app/src/main/res/drawable/ic_send_btn.xml" value="0.105" />
