@@ -15,6 +15,7 @@
         android:layout_margin="6dp"
         android:hint="Search"
         android:textColorHint="#8FFFFFFF"
+        android:textColor="#DCFFFFFF"
         android:background="@drawable/search_textbox_bg"
         android:padding="10dp"
         android:drawableStart="@drawable/ic_baseline_search_24"

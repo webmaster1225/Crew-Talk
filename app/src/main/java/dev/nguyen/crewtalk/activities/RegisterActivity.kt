@@ -75,7 +75,7 @@ class RegisterActivity : AppCompatActivity() {
                         userHashMap["username"] = username
                         userHashMap["profile"] = "https://firebasestorage.googleapis.com/v0/b/crew-talk-ded86.appspot.com/o/profile_picture.png?alt=media&token=31c9640d-0fd7-41b7-a5da-c57d4deb0cb8"
                         userHashMap["cover"] = "https://firebasestorage.googleapis.com/v0/b/crew-talk-ded86.appspot.com/o/cover_picture.jpeg?alt=media&token=1b2805cc-a241-4eae-8440-c108039e5fdc"
-                        userHashMap["status"] = "offline"
+                        userHashMap["status"] = ""
                         userHashMap["search"] = username.toLowerCase()
                         userHashMap["facebook"] = "https://m.facebook.com"
                         userHashMap["instagram"] = "https://m.instagram.com"
