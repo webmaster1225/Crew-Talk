@@ -10,6 +10,7 @@ import com.squareup.picasso.Picasso
 import de.hdodenhof.circleimageview.CircleImageView
 import dev.nguyen.crewtalk.models.Users
 import dev.nguyen.crewtalk.R
+import org.w3c.dom.Text
 
 class UserAdapter (
     // "private val" added here help declare the variables -- no need to init the vars inside the class body
@@ -43,6 +44,11 @@ class UserAdapter (
         val user: Users = mUsers[position]
         holder.userNameTxt.text = user.getUserName()
         Picasso.get().load(user.getProfile()).placeholder(R.drawable.profile_picture).into(holder.profileImageView)
+
+        if (user.getStatus() != "") {
+            holder.userStatus.visibility = View.VISIBLE
+            holder.userStatus.text = user.getStatus()
+        }
     }
 
     override fun getItemCount(): Int {
@@ -52,6 +58,7 @@ class UserAdapter (
     class ViewHolder(view: View, listener: UserAdapter.onItemClickListener) : RecyclerView.ViewHolder(view) {
         var userNameTxt : TextView = view.findViewById(R.id.username)
         var profileImageView : CircleImageView = view.findViewById(R.id.profile_image)
+        var userStatus: TextView = view.findViewById(R.id.searchStatus)
 
         init {
             view.setOnClickListener{
