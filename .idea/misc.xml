@@ -12,11 +12,13 @@
         <entry key="app/src/main/res/drawable/chat_right_side_bg.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/edit_text_bg.xml" value="0.105" />
         <entry key="app/src/main/res/drawable/ic_back.xml" value="0.105" />
+        <entry key="app/src/main/res/drawable/ic_baseline_search_24.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_send_btn.xml" value="0.105" />
         <entry key="app/src/main/res/drawable/offline_dot.xml" value="0.1095" />
         <entry key="app/src/main/res/drawable/online_dot.xml" value="0.1095" />
         <entry key="app/src/main/res/drawable/round_btn.xml" value="0.1095" />
         <entry key="app/src/main/res/drawable/rounded_btn.xml" value="0.1095" />
+        <entry key="app/src/main/res/drawable/search_textbox_bg.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/send_btn_bg.xml" value="0.15191497802734377" />
         <entry key="app/src/main/res/drawable/user_search_bg.xml" value="0.1" />
         <entry key="app/src/main/res/font/galada.xml" value="0.20277777777777778" />
