@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/welcome_bg_2"
     tools:context=".activities.RegisterActivity">
 
     <com.google.android.material.appbar.AppBarLayout
@@ -65,11 +66,9 @@
            android:text="Register"
            android:layout_marginTop="25dp"
            android:textColor="@android:color/white"
-           android:background="@color/colorPrimaryDark"
+           android:background="@drawable/round_btn"
+           android:alpha="0.7"
            />
-
-
-
 
    </LinearLayout>
 
