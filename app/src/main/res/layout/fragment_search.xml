@@ -13,7 +13,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="6dp"
-        android:hint="Search User here"
+        android:hint="Search"
+        android:textColorHint="#8FFFFFFF"
+        android:background="@drawable/search_textbox_bg"
+        android:padding="10dp"
+        android:drawableStart="@drawable/ic_baseline_search_24"
+        android:drawablePadding="5dp"
         />
 
     <androidx.recyclerview.widget.RecyclerView
