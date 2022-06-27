@@ -32,7 +32,7 @@
             android:layout_weight="2"
             android:layout_gravity="center"
             android:gravity="center"
-            android:text=""
+            android:text="Logan"
             android:textSize="20sp"
             android:textStyle="bold"
             android:textColor="@android:color/white" />
@@ -49,16 +49,16 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/chatRecyclerView"
-        android:layout_below="@id/helpBar"
-        android:layout_above="@id/sendMsgBar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_above="@id/sendMsgBar"
+        android:layout_below="@id/helpBar" />
 
     <TextView
         android:id="@+id/welcomeMsg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="✌️ Hit him up to start a conversation ✌️"
+        android:text=""
         android:layout_below="@+id/helpBar"
         android:layout_above="@+id/sendMsgBar"
         android:gravity="center"
