@@ -18,6 +18,7 @@
         <entry key="app/src/main/res/drawable/round_btn.xml" value="0.1095" />
         <entry key="app/src/main/res/drawable/rounded_btn.xml" value="0.1095" />
         <entry key="app/src/main/res/drawable/send_btn_bg.xml" value="0.15191497802734377" />
+        <entry key="app/src/main/res/drawable/user_search_bg.xml" value="0.1" />
         <entry key="app/src/main/res/font/galada.xml" value="0.20277777777777778" />
         <entry key="app/src/main/res/layout/activity_chat.xml" value="0.19457013574660634" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.24547101449275363" />
