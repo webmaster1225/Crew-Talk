@@ -62,6 +62,7 @@
         android:text=""
         android:layout_below="@+id/helpBar"
         android:layout_above="@+id/sendMsgBar"
+        android:textColor="#C6FFFFFF"
         android:gravity="center"
         android:textStyle="bold"
         android:textSize="18sp"
@@ -90,7 +91,7 @@
                 android:textColorHint="#A1FFFFFF"
                 android:hint="Message..."
                 android:padding="12dp"
-                android:textColor="@color/colorPrimary"/>
+                android:textColor="#FFFFFF"/>
 
             <ImageView
                 android:id="@+id/etSendBtn"
