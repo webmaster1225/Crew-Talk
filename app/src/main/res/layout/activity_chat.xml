@@ -5,8 +5,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context=".activities.ChatActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="#831C223C"
+    tools:context=".activities.ChatActivity">
 
     <LinearLayout
         android:id="@+id/helpBar"
@@ -71,6 +72,7 @@
         android:id="@+id/sendMsgBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#2F000000"
         android:layout_alignParentBottom="true">
 
         <LinearLayout
@@ -85,7 +87,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:inputType="text"
-                android:hint="Message.."
+                android:textColorHint="#A1FFFFFF"
+                android:hint="Message..."
                 android:padding="12dp"
                 android:textColor="@color/colorPrimary"/>
 
